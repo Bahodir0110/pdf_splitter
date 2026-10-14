@@ -1,0 +1,33 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: shartnoma_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./shartnomalar:/app/shartnomalar
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SHARTNOMALAR_DIR=/app/shartnomalar
+      - UPLOAD_DIR=/app/temp_uploads
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: shartnoma_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000
+      - VITE_BACKEND_URL=http://backend:8000
+    depends_on:
+      - backend

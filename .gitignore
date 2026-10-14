@@ -1,0 +1,41 @@
+# Local contract destination directory (auto-created on app launch)
+shartnomalar/
+
+# Agent skills directory
+.agents/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Python & Backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/.venv/
+.venv/
+env/
+venv/
+ENV/
+temp_uploads/
+backend/temp_uploads/
+.pytest_cache/
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment & Local configurations
+.env
+.env.local
+.env.*.local
